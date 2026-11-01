@@ -98,7 +98,7 @@ RSpec.describe Dependabot::Hex::FileParser do
           expect(dependency).to be_a(Dependabot::Dependency)
           expect(dependency.version).to eq("1.0.2")
           expect(dependency.requirements).to eq([])
-          expect(dependency).not_to be_top_level
+          expect(dependency.top_level?).to be(false)
           expect(dependency.metadata[:hex_package]).to eq("phoenix_pubsub")
         end
       end
